@@ -5,6 +5,7 @@ edition = "2021"
 authors = ["Joshua Tenorio"]
 repository = "https://github.com/joshtenorio/fs-chunker"
 license = "MIT"
+description = "Turn a file into a list of chunks."
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
