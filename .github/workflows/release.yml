@@ -16,7 +16,6 @@ jobs:
         with:
           release-type: rust
           package-name: fs-chunker
-          release-as: 0.1.0
           changelog-types: '[
           {
             "type": "feat",
