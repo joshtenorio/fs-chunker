@@ -15,6 +15,7 @@ jobs:
       - uses: google-github-actions/release-please-action@v3
         with:
           release-type: rust
+          release-as: 0.2.1
           package-name: fs-chunker
           changelog-types: '[
           {
