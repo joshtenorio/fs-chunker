@@ -10,7 +10,7 @@ pub fn chunk_file<P>(path: P, chunk_size: usize) -> Vec<Chunk> where P: AsRef<Pa
     let mut output: Vec<Chunk> = Vec::new();
 
     loop {
-        let mut chunk = Vec::with_capacity(chunk_size);
+        let mut chunk: Vec<u8> = Vec::with_capacity(chunk_size);
         let n = file.by_ref().take(chunk_size as u64).read_to_end(&mut chunk).unwrap();
         if n == 0 { break; } // nothing read
         let sha256_hash = digest(chunk.clone());
