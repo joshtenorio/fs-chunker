@@ -1,8 +1,8 @@
 use std::{io::Read, path::Path};
 use sha256::digest;
 pub struct Chunk {
-    data: Vec<u8>,
-    hash: String
+    pub data: Vec<u8>,
+    pub hash: String
 }
 
 pub fn chunk_file<P>(path: P, chunk_size: usize) -> Vec<Chunk> where P: AsRef<Path> {
