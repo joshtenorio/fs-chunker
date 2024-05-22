@@ -20,3 +20,19 @@ pub fn chunk_file<P>(path: P, chunk_size: usize) -> Vec<Chunk> where P: AsRef<Pa
 
     output
 }
+
+pub fn hash_file<P>(path: P, chunk_size: usize) -> Vec<String> where P: AsRef<Path> {
+    let mut file = std::fs::File::open(path).unwrap();
+    let mut output: Vec<String> = Vec::new();
+
+    loop {
+        let mut chunk: Vec<u8> = Vec::with_capacity(chunk_size);
+        let n = file.by_ref().take(chunk_size as u64).read_to_end(&mut chunk).unwrap();
+        if n == 0 { break; } // nothing read
+        let sha256_hash = digest(chunk.clone());
+        output.push(sha256_hash);
+        if n < chunk_size { break; } // if we read less bytes than chunk size, exit loop too
+    }
+
+    output
+}
