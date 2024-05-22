@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.0](https://github.com/joshtenorio/fs-chunker/compare/v0.3.0...v0.4.0) (2024-05-22)
+
+
+### Features
+
+* add option to use blake3 instead of sha256 ([4b76d7e](https://github.com/joshtenorio/fs-chunker/commit/4b76d7e929ccc30fac6eee4eb4f198d714e259ce))
+
 ## [0.3.0](https://github.com/joshtenorio/fs-chunker/compare/v0.2.1...v0.3.0) (2024-05-22)
 
 
