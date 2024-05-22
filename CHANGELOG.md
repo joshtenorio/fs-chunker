@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.0](https://github.com/joshtenorio/fs-chunker/compare/v0.2.1...v0.3.0) (2024-05-22)
+
+
+### Features
+
+* add function for hashing chunks only ([ab45ab5](https://github.com/joshtenorio/fs-chunker/commit/ab45ab5119d78368761098e6b8cba265e66ccc15))
+
 ## [0.2.1](https://github.com/joshtenorio/fs-chunker/compare/v0.2.0...v0.2.1) (2024-04-10)
 
 
