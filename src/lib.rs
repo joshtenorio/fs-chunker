@@ -2,13 +2,14 @@ use std::{io::Read, path::Path};
 use sha256::digest;
 pub struct Chunk {
     pub data: Vec<u8>,
-    pub hash: String
+    pub hash: String,
+    pub idx: usize
 }
 
 pub fn chunk_file<P>(path: P, chunk_size: usize, use_blake: bool) -> Vec<Chunk> where P: AsRef<Path> {
     let mut file = std::fs::File::open(path).unwrap();
     let mut output: Vec<Chunk> = Vec::new();
-
+    let mut idx = 0;
     loop {
         let mut chunk: Vec<u8> = Vec::with_capacity(chunk_size);
         let n = file.by_ref().take(chunk_size as u64).read_to_end(&mut chunk).unwrap();
@@ -20,7 +21,8 @@ pub fn chunk_file<P>(path: P, chunk_size: usize, use_blake: bool) -> Vec<Chunk> 
         else {
             hash = digest(chunk.clone());
         }
-        output.push(Chunk { data: chunk, hash });
+        output.push(Chunk { data: chunk, hash, idx });
+        idx += 1;
         if n < chunk_size { break; } // if we read less bytes than chunk size, exit loop too
     }
 
